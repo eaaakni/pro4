@@ -1,10 +1,20 @@
-body { margin:0; padding:0; }
-#map { position:absolute; top:0; bottom:0; width:100%; }
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
 
 #map {
     position: fixed;
-    width:50%;
+    width: 50%;
 }
+
 #features {
     width: 50%;
     margin-left: 50%;
@@ -16,6 +26,7 @@ body { margin:0; padding:0; }
 .difference {
     width: 48%;
 }
+
 .map {
     width: 100%;
 }
@@ -28,10 +39,13 @@ img {
     background-color: #807f30ff;
 }
 
-h1, h3 {
-    font-family:'Petit Formal Script', cursive;
+h1,
+h3 {
+    font-family: 'Petit Formal Script', cursive;
 }
-h1, h2 {
+
+h1,
+h2 {
     text-align: center;
     color: #ffdd33;
 }
@@ -40,20 +54,23 @@ h1 {
     font-size: 40px;
 }
 
-p, h2 {
+p,
+h2 {
     font-family: 'rockwell', serif;
 }
 
 section {
-    padding:  25px 50px;
+    padding: 25px 50px;
     line-height: 25px;
     border-bottom: 1px solid #ddd;
     opacity: 0.25;
     font-size: 13px;
 }
+
 section.active {
     opacity: 1;
 }
+
 section:last-child {
     border-bottom: none;
     margin-bottom: 200px;
