@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>New Project</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <meta name="description" content=" Beskrivelsen med keywords af produktet ">
+    <meta name="author" content="Amalie Knattrup Nielsen">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+    
+<body>
+
+<!-- Mapbox js -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>    
+    
+<!-- your map is loaded to #map -->
+<div id='map'></div>
+<div id='features'>
+    <section id='suzy-home' class='active'>
+       <h3>Suzy's Home</h3>
+        <p> </p>
+    </section>
+    <section id='camp-ivanhoe'>
+         <h3>Camp Ivanhoe</h3>
+        <p>Sam lives here for the summer </p>
+    </section>
+    <section id='church'>
+        <h3>St. Jack's Church</h3>
+        <p>The place they first met and what will be an essential place later in the story </p>
+    </section>
+    <section id='cove'>
+        <h3>‘Moonrise Kingdom’ cove</h3>
+        <p></p>
+    </section>
+    <section id='fort-lebanon'>
+        <h3>Fort Lebanon</h3>
+        <p></p>
+    </section>
+    <section id='police'>
+        <h3>Island Police</h3>
+        <p></p>
+    </section>
+    
+    </div>
+
+<script>
+/**
+ * Load the map
+ **/
+mapboxgl.accessToken = 
+    'pk.eyJ1IjoiZWFhYWtuaSIsImEiOiJjamZrdDVxZXUwYnIwMndsOXB2M3VxcDNkIn0.fBoZ4lUEkhjHJENg65c-gQ';
+    
+    
+/*var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/eaaakni/cjfm984490pws2ro0b6zocbqm'
+});*/
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/eaaakni/cjfm984490pws2ro0b6zocbqm',
+    center: [-71.329701, 41.694230],
+    zoom: 9,
+    pitch: 45
+});
+
+var chapters = {
+    'suzy-home': {
+        bearing: 27,
+        center: [-71.370334, 41.573149],
+        zoom: 15.5,
+        pitch: 20
+    },
+    'camp-ivanhoe': {
+        duration: 6000,
+        center: [-71.522401, 41.409453],
+        bearing: 150,
+        zoom: 15,
+        pitch: 0
+    },
+    'church': {
+        bearing: 90,
+        center: [-71.313900, 41.487500],
+        zoom: 15,
+        speed: 0.6,
+        pitch: 40
+    },
+    'cove': {
+        bearing: 90,
+        center: [ -71.359240, 41.477899],
+        zoom: 16.5
+    },
+    'fort-lebanon': {
+        bearing: 45,
+        center: [-71.782168, 41.518983],
+        zoom: 14.81,
+        pitch: 20,
+        speed: 0.5
+    },
+    'police': {
+        bearing: 180,
+        center: [-71.237401, 41.558752],
+        zoom: 15
+    }
+};
+
+// On every scroll event, check which element is on screen
+window.onscroll = function() {
+    var chapterNames = Object.keys(chapters);
+    for (var i = 0; i < chapterNames.length; i++) {
+        var chapterName = chapterNames[i];
+        if (isElementOnScreen(chapterName)) {
+            setActiveChapter(chapterName);
+            break;
+        }
+    }
+};
+
+var activeChapterName = 'suzy-home';
+function setActiveChapter(chapterName) {
+    if (chapterName === activeChapterName) return;
+
+    map.flyTo(chapters[chapterName]);
+
+    document.getElementById(chapterName).setAttribute('class', 'active');
+    document.getElementById(activeChapterName).setAttribute('class', '');
+
+    activeChapterName = chapterName;
+}
+
+function isElementOnScreen(id) {
+    var element = document.getElementById(id);
+    var bounds = element.getBoundingClientRect();
+    return bounds.top < window.innerHeight && bounds.bottom > 0;
+}
+</script>
+
+</body>
+</html>
