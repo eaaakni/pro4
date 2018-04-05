@@ -11,9 +11,27 @@ body { margin:0; padding:0; }
     font-family: sans-serif;
     overflow-y: scroll;
     background-color: #fafafa;
-    padding-bottom: 500px;
-    margin-top: 2px;
 }
+
+.difference {
+    width: 49%;
+}
+.map {
+    width: 100%;
+}
+h1, h3 {
+    font-family:'Petit Formal Script', cursive;
+}
+h1 {
+    text-align: center;
+    color: #ffdd33;
+    
+}
+
+p {
+    font-family: 'rockwell', serif;
+}
+
 section {
     padding:  25px 50px;
     line-height: 25px;

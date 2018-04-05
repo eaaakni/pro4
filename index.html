@@ -7,6 +7,7 @@
     <meta name="description" content=" Beskrivelsen med keywords af produktet ">
     <meta name="author" content="Amalie Knattrup Nielsen">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Petit+Formal+Script" rel="stylesheet">
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
 </head>
     
@@ -18,30 +19,48 @@
 <!-- your map is loaded to #map -->
 <div id='map'></div>
 <div id='features'>
+    <section id='intro'>
+        <h1>Moonrise Kingdom</h1>
+    </section>
     <section id='suzy-home' class='active'>
        <h3>Suzy's Home</h3>
+        <img class="difference" src="images/real-house.jpg" alt="real-house">
+        <img class="difference" src="images/movie-house.png" alt="movie-house">
         <p> Suzy lives here with her parents and 3 brothers</p>
+        <img class="map" src="images/island-map.png" alt="map">
     </section>
     <section id='camp-ivanhoe'>
          <h3>Camp Ivanhoe</h3>
+        <img class="difference" src="images/camp-real.jpg" alt="camp-real"> 
+        <img class="difference" src="images/camp-movie.jpg" alt="camp-real">
         <p>Sam lives here for the summer </p>
+        <img class="map" src="images/island-map.png" alt="map">
     </section>
     <section id='church'>
         <h3>St. Jack's Church</h3>
+        <img class="difference" src="images/church-real.jpg">
+        <img class="difference" src="images/church-movie.jpg">
         <p>The place they first met and what will be an essential place later in the story </p>
+        <img class="map" src="images/island-map.png" alt="map">
     </section>
     <section id='cove'>
         <h3>‘Moonrise Kingdom’ cove</h3>
+        <img class="difference" src="images/cove-real.png" alt="cove-real">
+        <img class="difference" src="images/cove-movie.png" alt="cove-movie">
         <p></p>
+        <img class="map" src="images/island-map.png" alt="map">
     </section>
     <section id='fort-lebanon'>
         <h3>Fort Lebanon</h3>
+        <img class="difference" src="images/fort-real.jpg" alt="">
+        <img class="difference" src="images/fort-movie.jpg" alt="">
         <p></p>
+        <img class="map" src="images/island-map.png" alt="map">
     </section>
-    <section id='police'>
+    <!-- <section id='police'>
         <h3>Island Police</h3>
         <p></p>
-    </section>
+    </section> -->
     
     </div>
 
@@ -67,6 +86,11 @@ var map = new mapboxgl.Map({
 });
 
 var chapters = {
+    'intro': {
+    center: [-71.329701, 41.694230],
+    zoom: 9,
+    pitch: 45
+},
     'suzy-home': {
         bearing: 27,
         center: [-71.370334, 41.573149],
@@ -118,7 +142,7 @@ window.onscroll = function() {
     }
 };
 
-var activeChapterName = 'suzy-home';
+var activeChapterName = 'intro';
 function setActiveChapter(chapterName) {
     if (chapterName === activeChapterName) return;
 
