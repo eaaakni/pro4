@@ -14,21 +14,33 @@ body { margin:0; padding:0; }
 }
 
 .difference {
-    width: 49%;
+    width: 48%;
 }
 .map {
     width: 100%;
 }
+
+img {
+    border-style: double;
+}
+
+#intro {
+    background-color: #807f30ff;
+}
+
 h1, h3 {
     font-family:'Petit Formal Script', cursive;
 }
-h1 {
+h1, h2 {
     text-align: center;
     color: #ffdd33;
-    
 }
 
-p {
+h1 {
+    font-size: 40px;
+}
+
+p, h2 {
     font-family: 'rockwell', serif;
 }
 
